@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 const TodoItem = ({id, name, isComplete}) => (
-  <li>
+  <li key={id}>
     <input type='checkbox' defaultChecked={isComplete}/>
     {name}
   </li>
 )
 
-export default (props) => (
-  <div className='Todo-List'>
-    <ul>
-      {props.todos.map(todo => <TodoItem key={todo.id} {...props}/> )}
-    </ul>
-  </div>
-)
+class TodoList extends Component {
+  render() {
+    return (
+      <div className='Todo-List'>
+        <ul>
+          {this.props.todos.map(todo => <TodoItem {...todo}/> )}
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default TodoList
