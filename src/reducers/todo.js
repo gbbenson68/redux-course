@@ -5,8 +5,11 @@ const initState = {
     {id: 3, name: 'Use State to Render UI', isComplete: false}
   ],
   // Specify a dummy current value for the form field
-  currentTodo: '< enter todo here >'
+  currentTodo: ''
 }
+
+// Action creator for CURRENT_UPDATE.
+export const updateCurrent = (value) => ({type:'CURRENT_UPDATE', payload: value})
 
 // The actual reducer:
 //    - TODO_ADD - the action for adding a neew todo item to the List
