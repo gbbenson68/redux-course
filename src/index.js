@@ -4,19 +4,25 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import store from './store.js'
+import { bindActionCreators } from 'redux'
 import { updateCurrent } from './reducers/todo.js'
 
 // Define todoChangeHandler
 //    Here, we dispatch a CURRENT_UPDATE change to the state. This handler is passed to
 //    to TodoForm.js and used as the onChange functiion.
-const todoChangeHandler = (value) => store.dispatch(updateCurrent(value))
+// const todoChangeHandler = (value) => store.dispatch(updateCurrent(value))
+
+// Use redux bindActionCrerators instead, using object key: value shorthand.
+const actions = bindActionCreators({
+  updateCurrent
+}, store.dispatch)
 
 // Wrap the ReactDOM.render() function to include the state.
 const render = () => {
   const state = store.getState()
   ReactDOM.render(<App todos={state.todos}
                        currentTodo={state.currentTodo}
-                       changeCurrent={todoChangeHandler}
+                       changeCurrent={actions.updateCurrent}
                   />,
                   document.getElementById('root'))
 }
