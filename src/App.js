@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
 import TodoForm from './components/TodoForm.js'
@@ -23,4 +24,9 @@ class App extends Component {
   }
 }
 
-export default App;
+// export default App
+
+// Instead of exporting the default App, we export the React App connected to the Redux store.
+const mapStateToProps = (state) => state
+const ConnectedApp = connect(mapStateToProps)(App)
+export default ConnectedApp

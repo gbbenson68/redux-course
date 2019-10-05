@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
@@ -17,6 +18,7 @@ const actions = bindActionCreators({
   updateCurrent
 }, store.dispatch)
 
+/* ***** BEGIN: Illustrate how to use redux with react without react-redux bindings.
 // Wrap the ReactDOM.render() function to include the state.
 const render = () => {
   const state = store.getState()
@@ -33,6 +35,18 @@ render()
 // Attach the render() function as a change listener callback function, so that any
 // change triggers the render().
 store.subscribe(render)
+  ***** END: Illustrate how to use redux with react without react-redux bindings.
+*/
+
+// Simplify application entry point by using react-redux bindings, by using
+// Provider component
+ReactDOM.render(
+  <Provider store={store}>
+    <App changeCurrent={actions.updateCurrent}/>
+  </Provider>,
+  document.getElementById('root')
+)
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
