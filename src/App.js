@@ -4,7 +4,6 @@ import logo from './logo.svg'
 import './App.css'
 import TodoForm from './components/TodoForm.js'
 import TodoList from './components/TodoList.js'
-import { bindActionCreators } from 'redux'
 import { updateCurrent } from './reducers/todo.js'
 
 class App extends Component {
@@ -28,6 +27,6 @@ class App extends Component {
 
 // Instead of exporting the default App, we export the React App connected to the Redux store.
 const mapStateToProps = (state) => state
-const mapDispatchToProps = (dispatch) => bindActionCreators({updateCurrent}, dispatch)
+const mapDispatchToProps = {updateCurrent}
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App)
 export default ConnectedApp
