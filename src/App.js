@@ -25,8 +25,7 @@ class App extends Component {
   }
 }
 
-// Instead of exporting the default App, we export the React App connected to the Redux store.
-const mapStateToProps = (state) => state
-const mapDispatchToProps = {updateCurrent}
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App)
-export default ConnectedApp
+export default connect(
+  (state) => state, // mapStateToProps()
+  {updateCurrent}   // mapDispatchToProps()
+)(App)
