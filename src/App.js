@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
 import TodoForm from './components/TodoForm.js'
 import TodoList from './components/TodoList.js'
-import { updateCurrent } from './reducers/todo.js'
 
 class App extends Component {
   render() {
@@ -15,17 +13,12 @@ class App extends Component {
           <h2>Welcome to React with Redux</h2>
         </header>
         <div className='Todo-App'>
-          <TodoForm currentTodo={this.props.currentTodo}
-                    changeCurrent={this.props.updateCurrent}
-          />
-          <TodoList todos={this.props.todos} />
+          <TodoForm />
+          <TodoList />
         </div>
       </div>
     )
   }
 }
 
-export default connect(
-  (state) => state, // mapStateToProps()
-  {updateCurrent}   // mapDispatchToProps()
-)(App)
+export default App
