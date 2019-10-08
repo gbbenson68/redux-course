@@ -1,9 +1,7 @@
+import { getTodos } from '../lib/todoServices.js'
+
 const initState = {
-  todos: [
-    {id: 1, name: 'Create Static UI', isComplete: true},
-    {id: 2, name: 'Create Initial State', isComplete: false},
-    {id: 3, name: 'Use State to Render UI', isComplete: false}
-  ],
+  todos: [],
   // Specify a dummy current value for the form field
   currentTodo: ''
 }
@@ -14,6 +12,12 @@ const CURRENT_UPDATE = 'CURRENT_UPDATE'
 
 // Action creator for CURRENT_UPDATE.
 export const updateCurrent = (value) => ({type:CURRENT_UPDATE, payload: value})
+export const fetchTodos = () => {
+  return () => {
+    getTodos()
+      .then(todos => console.log(todos))
+  }
+}
 
 // The actual reducer:
 //    - TODO_ADD - the action for adding a neew todo item to the List
