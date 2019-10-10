@@ -66,6 +66,17 @@ export const deleteTodo = (id) => {
     }
 }
 
+export const getVisibleTodos = (todos, filter) => {
+  switch(filter) {
+    case 'active':
+      return todos.filter(todo => !todo.isCompleted)
+    case 'completed':
+      return todos.filter(todo => todo.isCompleted)
+    default:
+      return todos
+  }
+}
+
 // The actual reducer:
 //    - TODO_ADD - the action for adding a neew todo item to the List
 //    - CURRENT_UPDATE - the action used to re-render the dummy todo field in the form
