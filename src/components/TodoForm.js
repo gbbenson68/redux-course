@@ -1,31 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateCurrent } from '../reducers/todo.js'
+import { updateCurrent, saveTodo } from '../reducers/todo.js'
 
-const TodoForm = (props) => {
-  // Destructure props
-  // NOTE: Although updateCurrent is retrieved from todo.js, we need to destructure
-  //       it here as were mapping it to props via mapDispatchToProps().   
-  const { currentTodo, updateCurrent } = props
-
+class TodoForm extends Component {
   // Define input change handler
   //   changeCurrent() is actually todoChangeHandler() passed as props from index.js
-  const handleInputChange = (event) => {
+  handleInputChange = (event) => {
     const value = event.target.value
-    updateCurrent(value)
+    this.props.updateCurrent(value)
   }
 
-  return (
-    <form>
-      <input type='text'
-             onChange={handleInputChange}
-             value={currentTodo}
-      />
-    </form>
-  )
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.saveTodo(this.props.currentTodo)
+  }
+
+  render() {
+    // Destructure props
+    const { currentTodo } = this.props
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type='text'
+               onChange={this.handleInputChange}
+               value={currentTodo}
+        />
+      </form>
+    )
+  }
 }
 
 export default connect(
   (state) => ({currentTodo: state.currentTodo}), // mapStateToProps()
-  {updateCurrent}                                // mapDispatchToProps()
+  {updateCurrent, saveTodo}                      // mapDispatchToProps()
 )(TodoForm)

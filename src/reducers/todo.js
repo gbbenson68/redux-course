@@ -1,4 +1,4 @@
-import { getTodos } from '../lib/todoServices.js'
+import { getTodos, createTodo } from '../lib/todoServices.js'
 
 const initState = {
   todos: [],
@@ -11,13 +11,23 @@ const TODO_ADD = 'TODO_ADD'
 const TODOS_LOAD = 'TODOS_LOAD'
 const CURRENT_UPDATE = 'CURRENT_UPDATE'
 
-// Action creator for CURRENT_UPDATE.
+// Action creators
 export const updateCurrent = (value) => ({type: CURRENT_UPDATE, payload: value})
 export const loadTodos = (todos) => ({type: TODOS_LOAD, payload: todos})
+export const addTodo = (todo) => ({type: TODO_ADD, payload: todo})
+
+// Dispatching functions
 export const fetchTodos = () => {
   return (dispatch) => {
     getTodos()
       .then(todos => dispatch(loadTodos(todos)))
+  }
+}
+
+export const saveTodo = (name) => {
+  return (dispatch) => {
+    createTodo(name)
+      .then(res => dispatch(addTodo(res)))
   }
 }
 
@@ -27,7 +37,8 @@ export const fetchTodos = () => {
 export default (state = initState, action) => {
   switch (action.type) {
     case TODO_ADD:
-      return {...state, todos: state.todos.concat(action.payload)}
+      // NOTE: Setting currentTodo to an empty string clears the form!!
+      return {...state, currentTodo: '', todos: state.todos.concat(action.payload)}
     case TODOS_LOAD:
       return {...state, todos: action.payload}
     case CURRENT_UPDATE:
