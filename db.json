@@ -6,11 +6,6 @@
       "isComplete": false
     },
     {
-      "id": 3,
-      "name": "load data into app",
-      "isComplete": true
-    },
-    {
       "id": 4,
       "name": "add records",
       "isComplete": false
@@ -21,11 +16,6 @@
       "isComplete": false
     },
     {
-      "name": "new todo",
-      "isComplete": true,
-      "id": 6
-    },
-    {
       "name": "another new todo",
       "isComplete": false,
       "id": 7
@@ -34,16 +24,6 @@
       "name": "some other todo",
       "isComplete": false,
       "id": 8
-    },
-    {
-      "name": "yet another todo",
-      "isComplete": true,
-      "id": 9
-    },
-    {
-      "name": "still another todo",
-      "isComplete": true,
-      "id": 10
     }
   ]
 }
