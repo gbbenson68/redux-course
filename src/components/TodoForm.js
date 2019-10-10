@@ -31,5 +31,5 @@ class TodoForm extends Component {
 
 export default connect(
   (state) => ({currentTodo: state.todo.currentTodo}), // mapStateToProps()
-  {updateCurrent, saveTodo}                      // mapDispatchToProps()
+  {updateCurrent, saveTodo}                           // mapDispatchToProps()
 )(TodoForm)
