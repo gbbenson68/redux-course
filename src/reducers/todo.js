@@ -8,7 +8,7 @@ const initState = {
 }
 
 // Create constants for actions, to make code less error-prone
-const TODO_ADD = 'TODO_ADD'
+export const TODO_ADD = 'TODO_ADD'
 const TODOS_LOAD = 'TODOS_LOAD'
 const CURRENT_UPDATE = 'CURRENT_UPDATE'
 
