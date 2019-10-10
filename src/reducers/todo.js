@@ -87,7 +87,7 @@ export default (state = initState, action) => {
              }
     case TODO_REMOVE:
       return {...state,
-                 todos: state.todos.filter(todo => todo.id !== action.payload.id)
+                 todos: state.todos.filter(todo => todo.id !== action.payload)
              }
     default:
       return state
