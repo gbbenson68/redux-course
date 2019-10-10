@@ -42,7 +42,7 @@ export const toggleTodo = (id) => {
     dispatch(showMessage('Saving Todo Update...'))
 
     // Get all todos...
-    const { todos } = getState.todo
+    const { todos } = getState().todo
 
     // ... find the one we want to update...
     const todo = todos.find(todo => todo.id === id)
