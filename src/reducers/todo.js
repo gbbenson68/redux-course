@@ -9,7 +9,7 @@ const initState = {
 
 // Create constants for actions, to make code less error-prone
 export const TODO_ADD = 'TODO_ADD'
-const TODOS_LOAD = 'TODOS_LOAD'
+export const TODOS_LOAD = 'TODOS_LOAD'
 const CURRENT_UPDATE = 'CURRENT_UPDATE'
 
 // Action creators
@@ -20,6 +20,7 @@ export const addTodo = (todo) => ({type: TODO_ADD, payload: todo})
 // Dispatching functions
 export const fetchTodos = () => {
   return (dispatch) => {
+    dispatch(showMessage('Loading Todos...'))
     getTodos()
       .then(todos => dispatch(loadTodos(todos)))
   }

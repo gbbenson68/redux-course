@@ -1,4 +1,4 @@
-import { TODO_ADD } from './todo.js'
+import { TODO_ADD, TODOS_LOAD } from './todo.js'
 
 const MESSAGE_SHOW = 'MESSAGE_SHOW'
 
@@ -9,6 +9,7 @@ export default function(state = '', action) {
     case MESSAGE_SHOW:
       return action.payload
     case TODO_ADD:
+    case TODOS_LOAD:
       return ''
     default:
       return state
