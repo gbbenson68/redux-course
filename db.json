@@ -3,7 +3,7 @@
     {
       "id": 2,
       "name": "start server",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,
@@ -13,7 +13,7 @@
     {
       "id": 5,
       "name": "update records",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "name": "another new todo",
