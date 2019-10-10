@@ -69,9 +69,9 @@ export const deleteTodo = (id) => {
 export const getVisibleTodos = (todos, filter) => {
   switch(filter) {
     case 'active':
-      return todos.filter(todo => !todo.isCompleted)
+      return todos.filter(todo => !todo.isComplete)
     case 'completed':
-      return todos.filter(todo => todo.isCompleted)
+      return todos.filter(todo => todo.isComplete)
     default:
       return todos
   }
