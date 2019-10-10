@@ -13,7 +13,7 @@
     {
       "id": 3,
       "name": "load data into app",
-      "isComplete": false
+      "isComplete": true
     },
     {
       "id": 4,
@@ -27,7 +27,7 @@
     },
     {
       "name": "new todo",
-      "isComplete": false,
+      "isComplete": true,
       "id": 6
     },
     {
@@ -42,12 +42,12 @@
     },
     {
       "name": "yet another todo",
-      "isComplete": false,
+      "isComplete": true,
       "id": 9
     },
     {
       "name": "still another todo",
-      "isComplete": false,
+      "isComplete": true,
       "id": 10
     }
   ]
